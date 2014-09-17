@@ -15,7 +15,7 @@ mtcars %>>%
 ```
 
 ```
-# [1] 0.8302274
+# [1] 0.8302
 ```
 
 The syntax is not ambiguous with other features that used `()` because evaluating a symbol simply makes no sense.
@@ -94,7 +94,7 @@ lm(y ~ x + 0) %>>%
 
 ```
 # Dickey-Fuller 
-#     -10.08887
+#        -10.09
 ```
 
 Note that the result of `fUnitRoots::adfTest()` is a S4 object of class `fHTEST` which is assigned to `testobj`. The result of `(test)` is no longer a S4 object but an ordinary list. Therefore, there's no difference in the syntax of element extraction between S4 object and other objects that support `[[]]`.

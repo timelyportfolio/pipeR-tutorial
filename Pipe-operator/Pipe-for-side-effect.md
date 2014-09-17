@@ -50,13 +50,13 @@ mtcars %>>%
 ```
 
 ```
-#       mpg             cyl              wt       
-#  Min.   :13.30   Min.   :4.000   Min.   :1.513  
-#  1st Qu.:15.72   1st Qu.:4.000   1st Qu.:2.732  
-#  Median :19.20   Median :6.000   Median :3.325  
-#  Mean   :19.85   Mean   :6.214   Mean   :3.152  
-#  3rd Qu.:21.82   3rd Qu.:8.000   3rd Qu.:3.570  
-#  Max.   :30.40   Max.   :8.000   Max.   :5.345
+#       mpg            cyl             wt      
+#  Min.   :13.3   Min.   :4.00   Min.   :1.51  
+#  1st Qu.:15.7   1st Qu.:4.00   1st Qu.:2.73  
+#  Median :19.2   Median :6.00   Median :3.33  
+#  Mean   :19.9   Mean   :6.21   Mean   :3.15  
+#  3rd Qu.:21.8   3rd Qu.:8.00   3rd Qu.:3.57  
+#  Max.   :30.4   Max.   :8.00   Max.   :5.34
 ```
 
 To explain in detail, the syntax `(~ f(.))` tells the operator that `f(.)` on the right of `~` should only be evaluated for its side effect with `.` representing the input value, and the input value, i.e. the filtered `mtcars` should continue in the pipeline and be passed to `summary()`.
@@ -99,19 +99,19 @@ mtcars %>>%
 # lm(formula = mpg ~ wt, data = .)
 # 
 # Residuals:
-#     Min      1Q  Median      3Q     Max 
-# -3.9594 -1.7930 -0.2217  1.5782  5.6073 
+#    Min     1Q Median     3Q    Max 
+# -3.959 -1.793 -0.222  1.578  5.607 
 # 
 # Coefficients:
 #             Estimate Std. Error t value Pr(>|t|)    
-# (Intercept)  35.3059     1.9850  17.786 4.49e-16 ***
-# wt           -4.9043     0.6108  -8.029 1.65e-08 ***
+# (Intercept)   35.306      1.985   17.79  4.5e-16 ***
+# wt            -4.904      0.611   -8.03  1.7e-08 ***
 # ---
 # Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 # 
-# Residual standard error: 2.563 on 26 degrees of freedom
-# Multiple R-squared:  0.7126,	Adjusted R-squared:  0.7016 
-# F-statistic: 64.47 on 1 and 26 DF,  p-value: 1.652e-08
+# Residual standard error: 2.56 on 26 degrees of freedom
+# Multiple R-squared:  0.713,	Adjusted R-squared:  0.702 
+# F-statistic: 64.5 on 1 and 26 DF,  p-value: 1.65e-08
 ```
 
 With `~`, side-effect operations can be easily distinguished from mainstream pipeline, and the input value of each line can be easily found by skipping the lines that start with `(~ ` while you are looking back.
@@ -134,13 +134,13 @@ mtcars %>>%
 ```
 
 ```
-#       mpg             cyl              wt       
-#  Min.   :13.30   Min.   :4.000   Min.   :1.513  
-#  1st Qu.:15.72   1st Qu.:4.000   1st Qu.:2.732  
-#  Median :19.20   Median :6.000   Median :3.325  
-#  Mean   :19.85   Mean   :6.214   Mean   :3.152  
-#  3rd Qu.:21.82   3rd Qu.:8.000   3rd Qu.:3.570  
-#  Max.   :30.40   Max.   :8.000   Max.   :5.345
+#       mpg            cyl             wt      
+#  Min.   :13.3   Min.   :4.00   Min.   :1.51  
+#  1st Qu.:15.7   1st Qu.:4.00   1st Qu.:2.73  
+#  Median :19.2   Median :6.00   Median :3.33  
+#  Mean   :19.9   Mean   :6.21   Mean   :3.15  
+#  3rd Qu.:21.8   3rd Qu.:8.00   3rd Qu.:3.57  
+#  Max.   :30.4   Max.   :8.00   Max.   :5.34
 ```
 
 ## Question mark
@@ -164,13 +164,13 @@ mtcars %>>%
 ```
 
 ```
-#       mpg             cyl              wt       
-#  Min.   :17.80   Min.   :4.000   Min.   :1.513  
-#  1st Qu.:21.40   1st Qu.:4.000   1st Qu.:2.001  
-#  Median :22.80   Median :4.000   Median :2.623  
-#  Mean   :24.56   Mean   :4.571   Mean   :2.611  
-#  3rd Qu.:29.62   3rd Qu.:5.500   3rd Qu.:3.209  
-#  Max.   :33.90   Max.   :6.000   Max.   :3.460
+#       mpg            cyl             wt      
+#  Min.   :17.8   Min.   :4.00   Min.   :1.51  
+#  1st Qu.:21.4   1st Qu.:4.00   1st Qu.:2.00  
+#  Median :22.8   Median :4.00   Median :2.62  
+#  Mean   :24.6   Mean   :4.57   Mean   :2.61  
+#  3rd Qu.:29.6   3rd Qu.:5.50   3rd Qu.:3.21  
+#  Max.   :33.9   Max.   :6.00   Max.   :3.46
 ```
 
 ## Stopping
@@ -193,8 +193,8 @@ mtcars %>>%
 ```
 
 ```
-#        1 
-# 22.34311
+#     1 
+# 22.34
 ```
 
 If we adjust the threshold to 0.8, the pipeline will be stopped before making predictions.

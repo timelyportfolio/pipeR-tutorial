@@ -15,8 +15,8 @@ summary(sample(diff(log(rnorm(100,mean = 10))),
 ```
 
 ```
-#       Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
-# -0.2799000 -0.0925100 -0.0024220  0.0002468  0.0925300  0.2164000
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+# -0.2800 -0.0878  0.0035 -0.0007  0.0765  0.3680
 ```
 
 Note that `rnorm()`, `log()`, `diff()`, `sample()`, and `summary()` all take the data as the first argument. We can use `%>>%` to rewrite the code so that the process of data transformation is straightforward.
@@ -33,8 +33,8 @@ rnorm(100, mean = 10) %>>%
 ```
 
 ```
-#      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-# -0.309500 -0.083720 -0.012360 -0.001854  0.071440  0.358400
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+# -0.3090 -0.0837 -0.0124 -0.0018  0.0714  0.3580
 ```
 
 The syntax of first argument piping is that, on the right-hand side of `%>>%`, whenever a function name or call is supplied, the left-hand side value will always be put to the first unnamed argument to that function.
@@ -104,13 +104,13 @@ mtcars %>>%
 ```
 
 ```
-#       mpg              wt       
-#  Min.   :10.40   Min.   :1.513  
-#  1st Qu.:15.28   1st Qu.:2.772  
-#  Median :18.95   Median :3.438  
-#  Mean   :19.22   Mean   :3.297  
-#  3rd Qu.:21.48   3rd Qu.:3.690  
-#  Max.   :30.40   Max.   :5.424
+#       mpg             wt      
+#  Min.   :10.4   Min.   :1.51  
+#  1st Qu.:15.3   1st Qu.:2.77  
+#  Median :18.9   Median :3.44  
+#  Mean   :19.2   Mean   :3.30  
+#  3rd Qu.:21.5   3rd Qu.:3.69  
+#  Max.   :30.4   Max.   :5.42
 ```
 
 can be written like 
@@ -123,13 +123,13 @@ mtcars %>>%
 ```
 
 ```
-#       mpg              wt       
-#  Min.   :10.40   Min.   :1.513  
-#  1st Qu.:15.28   1st Qu.:2.772  
-#  Median :18.95   Median :3.438  
-#  Mean   :19.22   Mean   :3.297  
-#  3rd Qu.:21.48   3rd Qu.:3.690  
-#  Max.   :30.40   Max.   :5.424
+#       mpg             wt      
+#  Min.   :10.4   Min.   :1.51  
+#  1st Qu.:15.3   1st Qu.:2.77  
+#  Median :18.9   Median :3.44  
+#  Mean   :19.2   Mean   :3.30  
+#  3rd Qu.:21.5   3rd Qu.:3.69  
+#  Max.   :30.4   Max.   :5.42
 ```
 
 In some other cases, the function is not very friendly to pipeline operation, that is, it does not take the data you transform through a pipeline as the first argument. One example is the linear model function `lm()`. This function take `formula` first and then `data`.
@@ -163,7 +163,7 @@ mtcars %>>%
 # 
 # Coefficients:
 # (Intercept)          cyl           wt  
-#      39.686       -1.508       -3.191
+#       39.69        -1.51        -3.19
 ```
 
 This works because it is actually evaluated as 

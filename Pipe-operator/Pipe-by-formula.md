@@ -17,11 +17,11 @@ mtcars %>>%
 # 
 # Coefficients:
 # (Intercept)          cyl         disp           hp         drat  
-#    12.30337     -0.11144      0.01334     -0.02148      0.78711  
+#     12.3034      -0.1114       0.0133      -0.0215       0.7871  
 #          wt         qsec           vs           am         gear  
-#    -3.71530      0.82104      0.31776      2.52023      0.65541  
+#     -3.7153       0.8210       0.3178       2.5202       0.6554  
 #        carb  
-#    -0.19942
+#     -0.1994
 ```
 
 The code above works correctly even though the two dots in the second line have different meanings:
@@ -46,11 +46,11 @@ mtcars %>>%
 # 
 # Coefficients:
 # (Intercept)          cyl         disp           hp         drat  
-#    12.30337     -0.11144      0.01334     -0.02148      0.78711  
+#     12.3034      -0.1114       0.0133      -0.0215       0.7871  
 #          wt         qsec           vs           am         gear  
-#    -3.71530      0.82104      0.31776      2.52023      0.65541  
+#     -3.7153       0.8210       0.3178       2.5202       0.6554  
 #        carb  
-#    -0.19942
+#     -0.1994
 ```
 
 where the formula tells `%>>%` to use `df` to represent `mtcars` so that the expression of linear model fit won't look ambiguous any more.
@@ -71,7 +71,7 @@ mtcars %>>%
 # 
 # Coefficients:
 # (Intercept)           wt          cyl  
-#      39.686       -3.191       -1.508
+#       39.69        -3.19        -1.51
 ```
 
 One thing to notice is that the formula must be enclosed in `()` and cannot function in `{}` as we have noted before.
@@ -94,6 +94,6 @@ mtcars %>>%
 # [1] 32
 # 
 # $r.squared
-# [1] 0.8302274
+# [1] 0.8302
 ```
 

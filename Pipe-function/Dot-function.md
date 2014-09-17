@@ -23,7 +23,7 @@ Pipe(mtcars)$
 # 
 # Coefficients:
 # (Intercept)          cyl           wt  
-#      39.686       -1.508       -3.191
+#       39.69        -1.51        -3.19
 ```
 
 ## Pipe by formula
@@ -45,7 +45,7 @@ Pipe(mtcars)$
 # 
 # Coefficients:
 # (Intercept)          cyl           wt  
-#      39.686       -1.508       -3.191
+#       39.69        -1.51        -3.19
 ```
 
 ## Pipe for side effect
@@ -70,10 +70,10 @@ Pipe(mtcars)$
 ```
 # $value : matrix 
 # ------
-#              Estimate Std. Error   t value     Pr(>|t|)
-# (Intercept) 36.630834  1.6127431 22.713372 3.299463e-18
-# cyl         -1.418216  0.3533452 -4.013684 4.783302e-04
-# wt          -2.528175  0.7657771 -3.301450 2.894825e-03
+#             Estimate Std. Error t value  Pr(>|t|)
+# (Intercept)   36.631     1.6127  22.713 3.299e-18
+# cyl           -1.418     0.3533  -4.014 4.783e-04
+# wt            -2.528     0.7658  -3.301 2.895e-03
 ```
 
 The question mark works too.
@@ -97,13 +97,13 @@ Pipe(mtcars)$
 ```
 # $value : table 
 # ------
-#       mpg             cyl              wt       
-#  Min.   :17.80   Min.   :4.000   Min.   :1.513  
-#  1st Qu.:21.40   1st Qu.:4.000   1st Qu.:2.001  
-#  Median :22.80   Median :4.000   Median :2.623  
-#  Mean   :24.56   Mean   :4.571   Mean   :2.611  
-#  3rd Qu.:29.62   3rd Qu.:5.500   3rd Qu.:3.209  
-#  Max.   :33.90   Max.   :6.000   Max.   :3.460
+#       mpg            cyl             wt      
+#  Min.   :17.8   Min.   :4.00   Min.   :1.51  
+#  1st Qu.:21.4   1st Qu.:4.00   1st Qu.:2.00  
+#  Median :22.8   Median :4.00   Median :2.62  
+#  Mean   :24.6   Mean   :4.57   Mean   :2.61  
+#  3rd Qu.:29.6   3rd Qu.:5.50   3rd Qu.:3.21  
+#  Max.   :33.9   Max.   :6.00   Max.   :3.46
 ```
 
 The debugging function `browser()` works exactly the same.
@@ -131,13 +131,13 @@ summary(sub_mtcars)
 ```
 
 ```
-#       mpg              wt             cyl       
-#  Min.   :10.40   Min.   :1.513   Min.   :4.000  
-#  1st Qu.:15.43   1st Qu.:2.581   1st Qu.:4.000  
-#  Median :19.20   Median :3.325   Median :6.000  
-#  Mean   :20.09   Mean   :3.217   Mean   :6.188  
-#  3rd Qu.:22.80   3rd Qu.:3.610   3rd Qu.:8.000  
-#  Max.   :33.90   Max.   :5.424   Max.   :8.000
+#       mpg             wt            cyl      
+#  Min.   :10.4   Min.   :1.51   Min.   :4.00  
+#  1st Qu.:15.4   1st Qu.:2.58   1st Qu.:4.00  
+#  Median :19.2   Median :3.33   Median :6.00  
+#  Mean   :20.1   Mean   :3.22   Mean   :6.19  
+#  3rd Qu.:22.8   3rd Qu.:3.61   3rd Qu.:8.00  
+#  Max.   :33.9   Max.   :5.42   Max.   :8.00
 ```
 
 Note that `=` in function argument will be interpreted as argument selection, therefore `=` cannot be used to assign value in `.()` function.
@@ -156,7 +156,7 @@ Pipe(mtcars)$
 # $value : numeric 
 # ------
 # (Intercept)          wt         cyl 
-#   39.686261   -3.190972   -1.507795
+#      39.686      -3.191      -1.508
 ```
 
 ```r
@@ -164,7 +164,7 @@ summ$r.squared
 ```
 
 ```
-# [1] 0.8302274
+# [1] 0.8302
 ```
 
 If `~` in is removed, the assignment will be done and the value of `summary()` will go on piping.
@@ -180,10 +180,10 @@ Pipe(mtcars)$
 ```
 # $value : matrix 
 # ------
-#              Estimate Std. Error   t value     Pr(>|t|)
-# (Intercept) 39.686261  1.7149840 23.140893 3.043182e-20
-# wt          -3.190972  0.7569065 -4.215808 2.220200e-04
-# cyl         -1.507795  0.4146883 -3.635972 1.064282e-03
+#             Estimate Std. Error t value  Pr(>|t|)
+# (Intercept)   39.686     1.7150  23.141 3.043e-20
+# wt            -3.191     0.7569  -4.216 2.220e-04
+# cyl           -1.508     0.4147  -3.636 1.064e-03
 ```
 
 ```r
@@ -191,7 +191,7 @@ summ$r.squared
 ```
 
 ```
-# [1] 0.8302274
+# [1] 0.8302
 ```
 
 Note that the output of two `Pipe`s are different. The `Pipe` with `~ summary(.)` results in a numeric vector of the coeffecients of the linear model because the summary is only a side effect while the `Pipe` without `~` results in a comprehensive matrix showing the summary of the linear coefficients because `coef()` works on the summary.
@@ -211,5 +211,5 @@ Pipe(mtcars)$
 ```
 # $value : numeric 
 # ------
-# [1] 0.8302274
+# [1] 0.8302
 ```

@@ -19,7 +19,7 @@ mtcars %>>%
 # 
 # Coefficients:
 # (Intercept)          cyl           wt  
-#      39.686       -1.508       -3.191
+#       39.69        -1.51        -3.19
 ```
 
 or 
@@ -37,7 +37,7 @@ mtcars %>>%
 # 
 # Coefficients:
 # (Intercept)          cyl           wt  
-#      39.686       -1.508       -3.191
+#       39.69        -1.51        -3.19
 ```
 
 The difference between `{}` and `()` used above is
@@ -58,10 +58,10 @@ mtcars %>>% {
 
 ```
 # $r.squared
-# [1] 0.8302274
+# [1] 0.8302
 # 
 # $adj.r.squared
-# [1] 0.8185189
+# [1] 0.8185
 ```
 
 It shows that `{}` holds a code block whose value is determined by the last expression or interrupted by `return()`.
@@ -151,6 +151,6 @@ mtcars %>>%
 
 ```
 # (Intercept)          wt         cyl 
-#   39.686261   -3.190972   -1.507795
+#      39.686      -3.191      -1.508
 ```
 

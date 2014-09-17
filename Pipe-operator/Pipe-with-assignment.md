@@ -28,20 +28,20 @@ mtcars %>>%
 # lm(formula = mpg ~ wt + cyl, data = .)
 # 
 # Residuals:
-#     Min      1Q  Median      3Q     Max 
-# -4.2893 -1.5512 -0.4684  1.5743  6.1004 
+#    Min     1Q Median     3Q    Max 
+# -4.289 -1.551 -0.468  1.574  6.100 
 # 
 # Coefficients:
 #             Estimate Std. Error t value Pr(>|t|)    
-# (Intercept)  39.6863     1.7150  23.141  < 2e-16 ***
-# wt           -3.1910     0.7569  -4.216 0.000222 ***
-# cyl          -1.5078     0.4147  -3.636 0.001064 ** 
+# (Intercept)   39.686      1.715   23.14  < 2e-16 ***
+# wt            -3.191      0.757   -4.22  0.00022 ***
+# cyl           -1.508      0.415   -3.64  0.00106 ** 
 # ---
 # Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 # 
-# Residual standard error: 2.568 on 29 degrees of freedom
-# Multiple R-squared:  0.8302,	Adjusted R-squared:  0.8185 
-# F-statistic: 70.91 on 2 and 29 DF,  p-value: 6.809e-12
+# Residual standard error: 2.57 on 29 degrees of freedom
+# Multiple R-squared:  0.83,	Adjusted R-squared:  0.819 
+# F-statistic: 70.9 on 2 and 29 DF,  p-value: 6.81e-12
 ```
 
 Then we can inspect the environment and see what is in it.
@@ -90,7 +90,7 @@ mtcars %>>%
 # 
 # Coefficients:
 # (Intercept)           wt          cyl  
-#      39.686       -3.191       -1.508
+#       39.69        -3.19        -1.51
 ```
 
 Then we can notice that `summ` is saved to the environment.
@@ -101,13 +101,13 @@ summ
 ```
 
 ```
-#       mpg              wt             cyl       
-#  Min.   :10.40   Min.   :1.513   Min.   :4.000  
-#  1st Qu.:15.43   1st Qu.:2.581   1st Qu.:4.000  
-#  Median :19.20   Median :3.325   Median :6.000  
-#  Mean   :20.09   Mean   :3.217   Mean   :6.188  
-#  3rd Qu.:22.80   3rd Qu.:3.610   3rd Qu.:8.000  
-#  Max.   :33.90   Max.   :5.424   Max.   :8.000
+#       mpg             wt            cyl      
+#  Min.   :10.4   Min.   :1.51   Min.   :4.00  
+#  1st Qu.:15.4   1st Qu.:2.58   1st Qu.:4.00  
+#  Median :19.2   Median :3.33   Median :6.00  
+#  Mean   :20.1   Mean   :3.22   Mean   :6.19  
+#  3rd Qu.:22.8   3rd Qu.:3.61   3rd Qu.:8.00  
+#  Max.   :33.9   Max.   :5.42   Max.   :8.00
 ```
 
 Like side effect expression can be a lambda expression, so can the expression being assigned following `=`.
@@ -152,7 +152,7 @@ model
 # 
 # Coefficients:
 # (Intercept)           wt          cyl  
-#      39.686       -3.191       -1.508
+#       39.69        -3.19        -1.51
 ```
 
 In pipeR v0.5, the assignment operators are enabled for their job. Note that the merit of a pipeline is its readability, a contributing factor is that the functions in each step are immediately visible so that one can easily figure out what the code does. The `=` syntax for assignment, to some extent, weakens the readability of the code because the functions are put behind, which, by contrast, does not happen with `->` used for assignment.
@@ -191,7 +191,7 @@ mtcars %>>%
 # 
 # Coefficients:
 # (Intercept)           wt          cyl  
-#      39.686       -3.191       -1.508
+#       39.69        -3.19        -1.51
 ```
 
 ```r
@@ -207,7 +207,7 @@ iris %>>%
 # 
 # Coefficients:
 # (Intercept)  Sepal.Width  
-#      6.5262      -0.2234
+#       6.526       -0.223
 ```
 
 Then we can print the results and see the values in it.
@@ -219,10 +219,10 @@ results
 
 ```
 # $mtcars
-# [1] 0.8302274
+# [1] 0.8302
 # 
 # $iris
-# [1] 0.01382265
+# [1] 0.01382
 ```
 
 The similar code works with `->` or `<-` too, which can be more natural and less disturbing in pipeline.
@@ -238,8 +238,8 @@ rnorm(100) %>>%
 ```
 
 ```
-#     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-# -2.22400 -0.56940 -0.03296  0.02267  0.62540  2.44100
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+# -2.2200 -0.5690 -0.0330  0.0227  0.6250  2.4400
 ```
 
 Print `results` and show the values in it.
@@ -250,8 +250,8 @@ results
 ```
 
 ```
-#        mean      median 
-#  0.02266845 -0.03296148
+#     mean   median 
+#  0.02267 -0.03296
 ```
 
 More than simply assigning values to symbols, the expression can also be setting names and others.

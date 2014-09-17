@@ -47,19 +47,26 @@ In fact, it does not only supports simple subsetting operations on vectors and l
 
 ```r
 library(data.table)
+```
+
+```
+# data.table 1.9.2  For help type: help("data.table")
+```
+
+```r
 set.seed(0)
 dt <- data.table(id = 1:6, x = rnorm(6), y = rep(letters[1:3]), key = "id")
 dt
 ```
 
 ```
-#    id          x y
-# 1:  1  1.2629543 a
-# 2:  2 -0.3262334 b
-# 3:  3  1.3297993 c
-# 4:  4  1.2724293 a
-# 5:  5  0.4146414 b
-# 6:  6 -1.5399500 c
+#    id       x y
+# 1:  1  1.2630 a
+# 2:  2 -0.3262 b
+# 3:  3  1.3298 c
+# 4:  4  1.2724 a
+# 5:  5  0.4146 b
+# 6:  6 -1.5400 c
 ```
 
 ```r
@@ -69,13 +76,13 @@ Pipe(dt)[1:3] # select by row index
 ```
 # $value : data.table data.frame 
 # ------
-#    id          x y
-# 1:  1  1.2629543 a
-# 2:  2 -0.3262334 b
-# 3:  3  1.3297993 c
-# 4:  4  1.2724293 a
-# 5:  5  0.4146414 b
-# 6:  6 -1.5399500 c
+#    id       x y
+# 1:  1  1.2630 a
+# 2:  2 -0.3262 b
+# 3:  3  1.3298 c
+# 4:  4  1.2724 a
+# 5:  5  0.4146 b
+# 6:  6 -1.5400 c
 ```
 
 ```r
@@ -133,7 +140,7 @@ pmtcars[mpg >= quantile(mpg,0.05)]$
 ```
 
 ```
-# Error: object 'pmtcars' not found
+# Error: object 'mpg' not found
 ```
 
 One thing to notice is that `[]` is evaluated with `.` representing the value in `Pipe`, which makes it easier to use by avoiding redundant references to the value many times.
@@ -181,13 +188,13 @@ Pipe(mtcars)[["mpg"]]$
 # $value : summaryDefault table 
 # ------
 #    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#   10.40   15.42   19.20   20.09   22.80   33.90
+#    10.4    15.4    19.2    20.1    22.8    33.9
 ```
 
 If you prefer not to use element extraction like this, there are various alternative ways to do exactly the same thing.
 
 ```r
-# work wiht vector, list, environment, S4 objects.
+# work with vector, list, environment, S4 objects.
 Pipe(mtcars)$
   .(mpg)$
   summary()
