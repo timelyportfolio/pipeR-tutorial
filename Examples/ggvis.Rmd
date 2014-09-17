@@ -25,14 +25,19 @@ library(pipeR)
 ggvis
 
 
-```{r}
-mtcars %>>% ggvis(~mpg, ~wt) %>>%
-  ( capture.output(print(.)) ) %>>% ( gsub( x = ., pattern = "<!--[.*]-->", replacement = "")  ) %>>% HTML() #%>>%
+```{r eval = F}
+mtcars %>>% ggvis(~mpg, ~wt)
+```
+
+```{r echo = F, message = F, results = 'asis'}
+mtcars %>>% ggvis(~mpg, ~wt) %>>% knit_print -> text 
+unclass(text)[1] %>>%
+  ( gsub( x = ., pattern = "(<!--)([/]?html_preserve)[.]*-->", replacement = "")  ) %>>%
+  HTML %>>% cat
   #print() %>>%
   #htmltools::html_print() %>>%
   #htmlwidgets:::pandoc_self_contained_html(output = "ggvis1.html") 
 
-#file.copy("tempggvis.html", "../_book/_fig/ggvis1.html")
-
+  #file.copy("tempggvis.html", "../_book/_fig/ggvis1.html")
 ```
 

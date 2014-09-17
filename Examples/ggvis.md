@@ -18,35 +18,30 @@ ggvis
 
 
 ```r
-mtcars %>>% ggvis(~mpg, ~wt) %>>%
-  print() %>>% ( gsub( x = ., pattern = "<!--[.*]-->", replacement = "")  ) %>>% HTML() #%>>%
+mtcars %>>% ggvis(~mpg, ~wt)
 ```
 
-```
-Guessing layer_points()
-```
-
-<!--html_preserve--><div id="plot_279865349-container" class="ggvis-output-container">
-  <div id="plot_279865349" class="ggvis-output"></div>
-  <div class="plot-gear-icon">
-    <nav class="ggvis-control">
-      <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
-      <ul class="ggvis-dropdown">
-        <li>
-          Renderer: 
-          <a id="plot_279865349_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_279865349" data-renderer="svg">SVG</a>
-           | 
-          <a id="plot_279865349_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_279865349" data-renderer="canvas">Canvas</a>
-        </li>
-        <li>
-          <a id="plot_279865349_download" class="ggvis-download" data-plot-id="plot_279865349">Download</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+<div id="plot_id875935059-container" class="ggvis-output-container">
+<div id="plot_id875935059" class="ggvis-output"></div>
+<div class="plot-gear-icon">
+<nav class="ggvis-control">
+<a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+<ul class="ggvis-dropdown">
+<li>
+Renderer: 
+<a id="plot_id875935059_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id875935059" data-renderer="svg">SVG</a>
+ | 
+<a id="plot_id875935059_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id875935059" data-renderer="canvas">Canvas</a>
+</li>
+<li>
+<a id="plot_id875935059_download" class="ggvis-download" data-plot-id="plot_id875935059">Download</a>
+</li>
+</ul>
+</nav>
+</div>
 </div>
 <script type="text/javascript">
-var plot_279865349_spec = {
+var plot_id875935059_spec = {
 	"data" : [
 		{
 			"name" : ".0",
@@ -135,8 +130,8 @@ var plot_279865349_spec = {
 			}
 		}
 	],
-	"width" : 600,
-	"height" : 400,
+	"width" : null,
+	"height" : null,
 	"legends" : [],
 	"axes" : [
 		{
@@ -158,25 +153,17 @@ var plot_279865349_spec = {
 	],
 	"padding" : null,
 	"ggvis_opts" : {
-		"width" : 600,
-		"height" : 400,
 		"keep_aspect" : false,
 		"resizable" : true,
 		"padding" : {},
 		"duration" : 250,
 		"renderer" : "svg",
-		"hover_duration" : 0
+		"hover_duration" : 0,
+		"width" : null,
+		"height" : null
 	},
 	"handlers" : null
 };
-ggvis.getPlot("plot_279865349").parseSpec(plot_279865349_spec);
-</script><!--/html_preserve-->
-
-```r
-  #print() %>>%
-  #htmltools::html_print() %>>%
-  #htmlwidgets:::pandoc_self_contained_html(output = "ggvis1.html") 
-
-#file.copy("tempggvis.html", "../_book/_fig/ggvis1.html")
-```
+ggvis.getPlot("plot_id875935059").parseSpec(plot_id875935059_spec);
+</script>
 
