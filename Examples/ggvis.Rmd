@@ -7,6 +7,12 @@ library(knitr)
 library(htmltools)
 library(htmlwidgets)
 library(pipeR)
+
+gitbook_print_ggvis <- function (g){
+   g %>>% ( unclass(knit_print(.))[1] ) %>>%
+  ( gsub( x = ., pattern = "(<!--)([/]?html_preserve)[.]*-->", replacement = "")  ) %>>%
+  HTML
+}
 ```
 
 <script src="../gitbook/plugins/gitbook-plugin-ggvis/lib/jquery/jquery.min.js"></script>
@@ -22,22 +28,55 @@ library(pipeR)
 
 # ggvis
 
-ggvis
+`ggvis` is designed to work well with pipes since every function returns the modified `ggvis` as an output.  Let's look at a very simple example `ggvis` pipeline using the `Orange` dataset built into R. We will pipe `Orange` into `ggvis` and then pipe the `ggvis` to `layer_lines()` for a simple line chart.
 
 
 ```{r eval = F}
-mtcars %>>% ggvis(~mpg, ~wt)
+Orange %>>% ggvis( ~age, ~circumference, stroke =~ Tree ) %>>% layer_lines()
+```
+
+`Pipe()` also works well with `ggvis`.
+
+```{r eval = F}
+Pipe(Orange)$ggvis( ~age, ~circumference, stroke =~ Tree )$layer_lines()
 ```
 
 ```{r echo = F, message = F, results = 'asis'}
-mtcars %>>% ggvis(~mpg, ~wt) %>>% knit_print -> text 
-unclass(text)[1] %>>%
-  ( gsub( x = ., pattern = "(<!--)([/]?html_preserve)[.]*-->", replacement = "")  ) %>>%
-  HTML %>>% cat
-  #print() %>>%
-  #htmltools::html_print() %>>%
-  #htmlwidgets:::pandoc_self_contained_html(output = "ggvis1.html") 
-
-  #file.copy("tempggvis.html", "../_book/_fig/ggvis1.html")
+Orange %>>% ggvis(~age, ~circumference, stroke =~ Tree ) %>>% layer_lines() %>>%
+  gitbook_print_ggvis %>>% cat
 ```
+
+## Styling `ggvis`
+
+When we prepare a chart for presentation, we usually will want to customize our chart by making various aesthetic changes.  This a great workflow for a pipe.  Let's add a title, clean up our `x` and `y` axes, and sort our legend all in one pipe.
+
+```{r eval = F}
+Orange %>>%
+  ggvis(~age, ~circumference, stroke =~ Tree ) %>>%
+  layer_lines() %>>%
+  add_axis("x"
+    , title = "Age of Tree"
+    , ticks = 6
+    , subdivide = 8
+    , tick_size_minor = 4
+  ) %>>%
+  add_axis( "y", title = "Circumference of Trunk (mm)" ) %>>%
+  add_legend( "stroke", values = sort(levels(Orange$Tree)) )
+```
+
+```{r echo = F,message =F,results = 'asis'}
+Orange %>>%
+  ggvis(~age, ~circumference, stroke =~ Tree ) %>>%
+  layer_lines() %>>%
+  add_axis("x"
+    , title = "Age of Tree"
+    , ticks = 6
+    , subdivide = 8
+    , tick_size_minor = 4
+  ) %>>%
+  add_axis( "y", title = "Circumference of Trunk (mm)" ) %>>%
+  add_legend( "stroke", values = sort(levels(Orange$Tree)) ) %>>%
+  gitbook_print_ggvis %>>% cat
+```
+
 
